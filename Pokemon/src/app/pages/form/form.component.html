@@ -1,1 +1,8 @@
-<p>form works!</p>
+<form [formGroup]="pokemonForm" (ngSubmit)="onSubmit">
+    <input formControlName="name" placeholder="name">
+    <input formControlName="id" placeholder="id">
+    <input formControlName="img" placeholder="img">
+    <input formControlName="num" placeholder="num">
+    <input formControlName="type" placeholder="type">
+    <button type="submit">Submit</button>
+</form>

@@ -8,6 +8,8 @@ import { PokemonComponent } from './pages/pokemon/pokemon.component';
 import { FormComponent } from './pages/form/form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceService } from './service/service.service';
+import { FooterComponent } from './core/footer/footer.component';
+import { PokemonDetailComponent } from './pages/pokemon/pokemon-detail/pokemon-detail.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { ServiceService } from './service/service.service';
     NavComponent,
     HomeComponent,
     PokemonComponent,
-    FormComponent
+    FormComponent,
+    FooterComponent,
+    PokemonDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -1,21 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../../service/service.service';
+import { Pokemon } from '../../pokemon.models';
 
 @Component({
   selector: 'app-pokemon',
   templateUrl: './pokemon.component.html',
   styleUrls: ['./pokemon.component.scss']
 })
-export class PokemonComponent {
-  pokemons: any[] = [];
+export class PokemonComponent implements OnInit {
+  public pokemons: Pokemon[] = [];
 
-  constructor(private service: ServiceService) {
-    this.getPokemons();
-  }
+  constructor(private serviceService: ServiceService) {}
 
-  getPokemons() {
-    this.service.getPokemons().subscribe((data: any) => {
-      this.pokemons = data.results;
+  ngOnInit():void {
+    this.serviceService.getPokemons().subscribe((data:any)=>{
+      this.pokemons = [...data];
     });
   }
-}
+
+
+
+}  
+

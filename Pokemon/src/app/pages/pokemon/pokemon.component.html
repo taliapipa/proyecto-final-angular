@@ -2,5 +2,7 @@
 <ul>
   <li *ngFor="let pokemon of pokemons">
     {{ pokemon.name }}
+    <img [src]="pokemon.img" [alt]="pokemon.name" />
+    <button routerLink="/pokemonDetail/{{pokemon.id}}">Ver más</button>
   </li>
 </ul>
