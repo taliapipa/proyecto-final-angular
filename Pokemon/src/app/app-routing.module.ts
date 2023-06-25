@@ -1,19 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PokemonComponent } from './pages/pokemon/pokemon.component';
-import { FormComponent } from './pages/form/form.component';
-import { HomeComponent } from './pages/home/home.component';
-import { PokemonDetailComponent } from "./pages/pokemon/pokemon-detail/pokemon-detail.component";
-
 
 const routes: Routes = [
-  { path: "", pathMatch: "full", redirectTo: "home"},
-  { path: "home", component: HomeComponent, pathMatch: "prefix", loadChildren: () => import('src/app/pages/home/home.module').then(m => m.HomeModule)},
-  { path: "form", component: FormComponent},
-  { path: "pokemon", component: PokemonComponent},
-  { path: "pokemonDetail/:id", component: PokemonDetailComponent }
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
+  { path: 'form', loadChildren: () => import('./pages/form/form.module').then(m => m.FormModule) },
+  { path: 'pokemon', loadChildren: () => import('./pages/pokemon/pokemon.module').then(m => m.PokemonModule) },
+  { path: 'pokemonDetail/:id', loadChildren: () => import('./pages/pokemon/pokemon-detail/pokemon-detail.module').then(m => m.PokemonDetailModule) },
+  { path: 'about-me', loadChildren: () => import('./pages/about-me/about-me.module').then(m => m.AboutMeModule)},
+  { path: '**', loadChildren: ()=>  import('src/app/pages/not-found/not-found/not-found.module').then(m => m.NotFoundModule)}
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

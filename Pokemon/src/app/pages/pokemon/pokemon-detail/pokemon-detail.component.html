@@ -1,5 +1,8 @@
-<div>
+<div *ngIf="pokemon">
     {{ pokemon.name }}
-    <img [src]="pokemon?.img" [alt]="pokemon?.name" />
-    <button (click)="deletePokemon()">Eliminar pokemon</button>
-</div>
+    <img [src]="pokemon.img" [alt]="pokemon.name" />
+    <h4>Type: {{pokemon.type}}</h4>
+    <p>Weaknesses: {{pokemon.weaknesses}}</p>
+    <button (click)="deletePokemon()">Eliminar Pokémon</button>
+  </div>
+  

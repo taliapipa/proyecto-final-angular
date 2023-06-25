@@ -1,6 +1,7 @@
 <h2>List of Pokemons</h2>
+<input type="text" [(ngModel)]="filter" />
 <ul>
-  <li *ngFor="let pokemon of pokemons">
+  <li *ngFor="let pokemon of (pokemons | filterNames: filter)">
     {{ pokemon.name }}
     <img [src]="pokemon.img" [alt]="pokemon.name" />
     <button routerLink="/pokemonDetail/{{pokemon.id}}">Ver más</button>

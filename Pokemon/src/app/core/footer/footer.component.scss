@@ -1,0 +1,12 @@
+
+img {
+    width: 25px;
+}
+
+.footer-image {
+    transition: transform 0.3s;
+}
+
+.footer-image:hover {
+    transform: scale(1.2);
+}

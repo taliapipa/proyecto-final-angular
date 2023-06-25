@@ -9,16 +9,22 @@ import { Pokemon } from '../../pokemon.models';
 })
 export class PokemonComponent implements OnInit {
   public pokemons: Pokemon[] = [];
+  public filterPokemon: Pokemon[];
+  public filter: string = '';
 
-  constructor(private serviceService: ServiceService) {}
+  constructor(private serviceService: ServiceService) {
+    this.filter = '';
+    this.filterPokemon = [];
+  }
 
-  ngOnInit():void {
-    this.serviceService.getPokemons().subscribe((data:any)=>{
+  
+  ngOnInit(): void {
+    this.serviceService.getPokemons().subscribe((data: any) => {
       this.pokemons = [...data];
+      this.filterPokemon = [...data];
     });
   }
 
+}
 
-
-}  
 

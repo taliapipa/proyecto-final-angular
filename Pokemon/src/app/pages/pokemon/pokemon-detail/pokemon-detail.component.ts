@@ -19,7 +19,7 @@ export class PokemonDetailComponent {
       this.id = Number(params.get("id"))
     })
     this.serviceService.getPokemon(this.id).subscribe((data:any)=>{
-      //console.log(data);
+      console.log(data);
       this.pokemon = data;
     })
   }
